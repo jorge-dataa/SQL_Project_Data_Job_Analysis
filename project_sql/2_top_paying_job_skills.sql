@@ -24,3 +24,4 @@ ON top_paying_jobs.job_id = skd.job_id
 INNER JOIN skills_dim AS sd
 ON skd.skill_id = sd.skill_id
 ORDER BY salary_year_avg DESC
+ LIMIT 10
