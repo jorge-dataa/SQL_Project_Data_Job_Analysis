@@ -137,7 +137,8 @@ and possibly machine learning workflows.
 
 Python is now a strong differentiator in higher-salary roles.
 
-![Top Paying Skills](assets\Picture2.png)
+
+<img width="2391" height="1393" alt="Picture2" src="https://github.com/user-attachments/assets/6af5eaf5-e652-4d0d-a879-97d97a534cc2" />
 
 
 ### 3. In-Demand Skills for Data Analysts
