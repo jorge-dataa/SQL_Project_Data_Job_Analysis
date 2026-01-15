@@ -1,7 +1,7 @@
 # Introduction
 This project analyzes a job postings dataset to uncover insights about the data job market. Using SQL, I explored salary trends, in-demand skills, and which skills lead to higher-paying roles. The goal is to answer practical business questions that help job seekers and employers understand the current landscape of data-related careers.
 
-SQL queries? Check them out here:[project_sql folder](/project_sql/)
+SQL queries? Check them out here: [project_sql folder](/project_sql/)
 # Background
 The dataset used in this project contains thousands of real job postings related to data analytics, including details such as salaries, job titles, locations, required skills, and posting dates. This information provides a foundation for exploring patterns in the data job market.
 
