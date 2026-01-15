@@ -231,6 +231,52 @@ Many of the top-paying skills are infrastructure, cloud, and tooling technologie
 
 To find the most valuable skills for remote data analyst roles, I filtered job postings to include only positions with the title “Data Analyst,” jobs that were remote, and roles that reported a yearly salary. I first calculated how frequently each skill appears across these postings to measure demand, and then computed the average salary associated with each skill. After combining skill demand with average salary, I filtered out low-demand skills, sorted the results by highest average salary and demand, and limited the output to the top 25 skills.
 
+```sql
+WITH skills_demand AS (
+    SELECT 
+        skd.skill_id,
+        skills,
+        COUNT(skd.job_id) AS demand_count
+    FROM job_postings_fact
+    INNER JOIN skills_job_dim AS skd
+    ON job_postings_fact.job_id = skd.job_id
+    INNER JOIN skills_dim AS sd
+    ON skd.skill_id = sd.skill_id
+    WHERE job_title_short = 'Data Analyst' 
+    AND job_work_from_home = TRUE 
+    AND salary_year_avg IS NOT NULL
+    GROUP BY skd.skill_id, skills),
+average_salary AS (
+    SELECT 
+    skd.skill_id, 
+    ROUND(AVG(salary_year_avg),0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim AS skd
+ON job_postings_fact.job_id = skd.job_id
+INNER JOIN skills_dim AS sd
+ON skd.skill_id = sd.skill_id
+WHERE job_title_short = 'Data Analyst' 
+AND salary_year_avg IS NOT NULL
+AND job_work_from_home = TRUE
+GROUP BY skd.skill_id)
+
+SELECT
+    skills_demand.skill_id,
+    skills_demand.skills,
+    demand_count,
+    avg_salary
+FROM 
+    skills_demand
+INNER JOIN average_salary 
+ON skills_demand.skill_id = average_salary.skill_id
+WHERE demand_count > 10
+ORDER BY avg_salary DESC,
+    demand_count DESC
+        
+LIMIT 25
+```
+
+
 | Skill ID | Skill        | Demand Count | Avg Salary ($) |
 |----------|-------------|--------------|----------------|
 | 8        | Go          | 27           | 115,320        |
