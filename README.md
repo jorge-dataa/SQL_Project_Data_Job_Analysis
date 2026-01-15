@@ -75,7 +75,8 @@ Salary Variation: The salaries for Data Analyst positions vary significantly, ra
 
 Job Post Dates: The job postings span several months, from as early as June 2023 to February 2023. This may reflect ongoing demand for Data Analysts and the continued recruitment efforts by these companies.
 
-![Top Paying Roles](assets\Picture1.png)
+<img width="3086" height="1586" alt="Picture1" src="https://github.com/user-attachments/assets/36dba153-318c-4391-aba8-5a8764980d00" />
+
 
 
 ### 2. Top-Paying Data Analyst Skills
